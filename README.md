@@ -19,3 +19,24 @@ Potential Biases & Limitations:
 Satellite imagery gaps for early 1990s may reduce temporal precision.
 Historical map digitization introduces potential georeferencing errors.
 Limited hydrochemical data for smaller rivers may underestimate pollution trends.
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load dataset
+data = pd.read_csv('data/georgia_landuse.csv')
+
+# Simple analysis: land use change
+summary = data.groupby('year')['pastoral_land_area'].mean()
+
+# Plot
+summary.plot()
+plt.title("Pastoral Land Change Over Time")
+plt.xlabel("Year")
+plt.ylabel("Area")
+plt.show()
+year,pastoral_land_area
+2000,1200
+2005,1100
+2010,950
+2015,900
+2020,850
